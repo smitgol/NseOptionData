@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+    <table class="table table-bordered w-50 m-5 text-center">
+        <thead>
+            <tr>
+                <th colspan="4">Nifty50 || Market Price :- {{ nifty_market_data.market_price }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Key Parameter</th>
+                <td>{{ nifty_market_data.key_parameter }}</td>
+            
+            </tr>
+            <tr>
+                <th>Strike Price</th>
+                <th>Data</th>
+            </tr>
+            {% for strike in nifty_market_data.data%}
+                <tr>
+                    <td>{{ strike.strike_price }}</td>
+                    <td>{{ strike.diff }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-bordered w-50 m-5 text-center">
+        <thead>
+            <tr>
+                <th colspan="4">BankNifty || Market Price :- {{ bank_market_data.market_price }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Key Parameter</th>
+                <td>{{ bank_market_data.key_parameter }}</td>
+            
+            </tr>
+            <tr>
+                <th>Strike Price</th>
+                <th>Data</th>
+            </tr>
+            {% for strike in bank_market_data.data%}
+                <tr>
+                    <td>{{ strike.strike_price }}</td>
+                    <td>{{ strike.diff }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
